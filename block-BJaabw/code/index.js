@@ -11,9 +11,10 @@ minToSec(2) ➞ 120
 */
 
 // - Write a Function Decleration for above problem
-function minToSec() {
-  // Your code
+function minToSec(min) {
+  return min *60;
 }
+minToSec(2);
 // - Execute the function with required parameter
 
 /* 2. 
@@ -26,11 +27,20 @@ isInRange(1, 10, 19); // false
 */
 
 // - Write a Function Decleration for above problem
-function isInRange() {
-  // Your code
+function isInRange(lower, upper, n) {
+  if(n>lower && n<upper){
+    return (`${n} is in Range`);
+  }
+  else{
+    return (`${n} is not in Range`);
+  }
 }
-// - Execute the function with required parameter
 
+// function isInRange = ( lower, u, n ) => n > l  && n < u? true : false;
+
+isInRange(1, 10, 19);
+// - Execute the function with required parameter
+isInRange(5, 25, 35);
 /* 2. calculateBMI
 
 
@@ -49,9 +59,21 @@ Obese: BMI is 30 or more
 
 */
 
-function calculateBMI() {
-  // Your code
+function calculateBMI(weight , height) {
+  bmi= weight / (height*height);
+  
+  if (bmi<18.5){
+    return "Underweight";
+  } else if(bmi>=18.5 && bmi <=24.9){
+    return "Normal Weight";
+  } else if(bmi>=25 && bmi <=29.9){
+    return "Over Weight";
+  } else {
+    return "Obese";
+  }
+
 }
+calculateBMI(45,161.544);
 
 /* 3. appropiateDrinks
 
@@ -64,9 +86,13 @@ Create a function that take the age are return the appropiate drink based on the
 
 */
 
-function appropiateDrinks() {
-  // Your code
+function appropiateDrinks( age) {
+  return (age<14)?"drink fruit juice"
+  :(age<18)?"drink soda"
+  :(age<21)?"drink fruit-flavored beer"
+  :"drink throat-piercing vodka";
 }
+appropiateDrinks(45);
 
 /* 4. Add two numers or string
 
@@ -79,12 +105,20 @@ Twist is when user passes anything other than number, or string value you should
 
 */
 
-function sum() {
-  // Your code
+function sum(a ,b ) {
+  if (typeof a == "number" && typeof b == "number"){
+    return a + b;
+  }
+  else if (typeof a == "string" && typeof b == "string"){
+    return ( a + b );
+  }
+  else{
+    return "Enter valid values";
+  }
 }
 
 // Function Test
-sum(2, 4); // 4
+sum(2, 4); // 6
 sum('Arya', 'Stark'); // "Arya Stark"
 sum('Arya', 2); // Enter valid Values
 sum(null, 2); // Enter valid Values
